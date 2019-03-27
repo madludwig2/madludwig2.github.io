@@ -16,7 +16,6 @@
             var user_input = prompt("Enter number of buttons: between 1-26 ", "?");
             if(user_input < 1 || user_input > 26)
             {
-                alert("You've entered an invalid selection!");
                 var user_input = prompt("Enter number of buttons: between 1-26 ", "?");
             }
         } while (user_input < 1 && user_input > 26);
@@ -30,27 +29,14 @@
                 var t = document.createTextNode(letters[a]);
                 btn.appendChild(t);
                 document.body.appendChild(btn);
+                btn.onclick = function()
+                {
+                    console.log("Button " + btn.textContent + " was clicked!");
+                    return btn.value;
+                }
             }
-            var bElements = document.getElementsByTagName("button");
-            return bElements;
         }
-
-        function clickHandler()
-        {
-            document.getElementById("here").innerHTML = "you are here!"
-        }
-        /**
-        var button_elements = populateButtons(user_input);
-        button_elements.innerHTML = "This is a button";
-
-        var x = document.getElementsByTagName("button");
-        document.getElementsByTagName("button").innerHTML = "The " + x + " was clicked!"; 
-        */
-        var bElements = populateButtons(user_input);
-        var x = bElements.length;
-        var y = bElements.valueOf(0);
-        document.getElementById("here").innerHTML=x;
-        document.getElementById("here").innerHTML=y;
+        populateButtons(user_input);
         </script>
 </body>
 </html>
